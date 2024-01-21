@@ -23,19 +23,13 @@
 }
 
 .spinner {
-    width: 75px;
-    height: 75px;
+    width: 160px;
     display: inline-block;
-    border-width: 2px;
-    border-color: rgba(255, 255, 255, 0.05);
-    border-top-color: #fff;
-    animation: spin 1s infinite linear;
-    border-radius: 100%;
-    border-style: solid;
+    animation: spin 2s infinite linear;
 }
 
 @keyframes spin {
   100% {
-    transform: rotate(360deg);
+    transform: scale(1.2);
   }
 }
