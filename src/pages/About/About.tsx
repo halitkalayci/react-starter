@@ -3,14 +3,14 @@ import videoService from "../../services/videoService";
 
 type Props = {};
 
-const Homepage = (props: Props) => {
+const About = (props: Props) => {
 	useEffect(() => {
-		videoService.getAll().then();
+		videoService.add({}).then();
 		videoService.delete(1).then();
-	}, []);
+		videoService.getAll().then();
+	});
 
-	return <div>Homepage</div>;
+	return <div>About</div>;
 };
 
-export default Homepage;
-// Formik
+export default About;
