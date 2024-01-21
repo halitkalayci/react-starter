@@ -1,12 +1,19 @@
 import React, {useEffect} from "react";
 import videoService from "../../services/videoService";
+import authService from "../../services/authService";
 
 type Props = {};
 
 const Homepage = (props: Props) => {
 	useEffect(() => {
-		videoService.getAll().then();
-		videoService.delete(1).then();
+		authService
+			.register({
+				email: "string@string.com",
+				password: "string123",
+				firstName: "deneme",
+				lastName: "deneme",
+			})
+			.then(response => console.log(response));
 	}, []);
 
 	return <div>Homepage</div>;

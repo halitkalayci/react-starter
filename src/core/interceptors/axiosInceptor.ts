@@ -3,10 +3,10 @@ import {BASE_API_URL} from "../../environment/environment";
 import tokenService from "../services/tokenService";
 import {store} from "../../store/configureStore";
 import {addRequest, removeRequest} from "../../store/loading/loadingSlice";
+import {handleError} from "../errorHandlers/errorHandlers";
 
 const axiosInstance = axios.create({
 	baseURL: BASE_API_URL,
-	withCredentials: true,
 });
 
 axiosInstance.interceptors.request.use(config => {
@@ -23,6 +23,7 @@ axiosInstance.interceptors.response.use(
 		return response;
 	},
 	error => {
+		handleError(error);
 		store.dispatch(removeRequest());
 		return error;
 	},
