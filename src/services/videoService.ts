@@ -17,7 +17,7 @@ class VideoService extends BaseService<
 > {
 	constructor() {
 		super();
-		this.apiUrl = BASE_API_URL + "Video";
+		this.apiUrl = "Video";
 	}
 
 	getByFilter() {}

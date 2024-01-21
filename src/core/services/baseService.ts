@@ -1,4 +1,5 @@
-import axios, {AxiosResponse} from "axios";
+import {AxiosResponse} from "axios";
+import axiosInstance from "../interceptors/axiosInceptor";
 
 export class BaseService<
 	GetAllType,
@@ -15,24 +16,24 @@ export class BaseService<
 	}
 
 	getAll(): Promise<AxiosResponse<GetAllType, any>> {
-		return axios.get<GetAllType>(this.apiUrl);
+		return axiosInstance.get<GetAllType>(this.apiUrl);
 	}
 
 	getById(id: number): Promise<AxiosResponse<GetByIdType, any>> {
-		return axios.get<GetByIdType>(this.apiUrl + "/" + id);
+		return axiosInstance.get<GetByIdType>(this.apiUrl + "/" + id);
 	}
 
 	add(request: AddRequestType): Promise<AxiosResponse<AddResponseType, any>> {
-		return axios.post<AddResponseType>(this.apiUrl, request);
+		return axiosInstance.post<AddResponseType>(this.apiUrl, request);
 	}
 
 	update(
 		request: UpdateRequestType,
 	): Promise<AxiosResponse<UpdateResponseType, any>> {
-		return axios.put<UpdateResponseType>(this.apiUrl, request);
+		return axiosInstance.put<UpdateResponseType>(this.apiUrl, request);
 	}
 
 	delete(id: number) {
-		return axios.delete(this.apiUrl + "/" + id);
+		return axiosInstance.delete(this.apiUrl + "/" + id);
 	}
 }
