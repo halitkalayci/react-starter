@@ -4,7 +4,7 @@
     width: 100%;
     height: 100%;
     position: fixed;
-    background: #222;
+    background: rgba(35, 35, 35, 0.4);
 }
 
 .overlay__inner {
